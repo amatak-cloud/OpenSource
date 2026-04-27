@@ -5,11 +5,6 @@
 │       │   ├── 📄 favicon.svg [.svg]
 │       │   ├── 📄 icons.svg [.svg]
 │       │   └── 📄 manifest.json [.json] (32 lines)
-│       ├── 📁 scripts/
-│       │   ├── 📄 gen_readme.js [.js] (473 lines)
-│       │   ├── 📄 gen_tree.js [.js] (173 lines)
-│       │   ├── 📄 git_init.js [.js] (508 lines)
-│       │   └── 📄 git_update.js [.js] (565 lines)
 │       ├── 📁 src/
 │       │   ├── 📁 assets/
 │       │   │   ├── 📄 admin_dash.png [.png]
