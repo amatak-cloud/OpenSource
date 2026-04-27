@@ -1,0 +1,453 @@
+/* src/components/RecentActivity.css */
+.recent-activity {
+  background: var(--bg-primary);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-4);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-fast);
+}
+
+.recent-activity:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+/* Header */
+.activity-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-4);
+  padding-bottom: var(--spacing-3);
+  border-bottom: 2px solid var(--border-color);
+  flex-wrap: wrap;
+  gap: var(--spacing-3);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+.header-left h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.auto-refresh-badge {
+  font-size: 0.7rem;
+  padding: 0.25rem 0.5rem;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-full);
+  color: var(--text-secondary);
+  animation: pulse 2s infinite;
+}
+
+/* Filters */
+.activity-filters {
+  display: flex;
+  gap: var(--spacing-2);
+}
+
+.filter-btn {
+  padding: 0.25rem 0.75rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  color: var(--text-secondary);
+}
+
+.filter-btn:hover {
+  background: var(--bg-hover);
+  transform: translateY(-1px);
+}
+
+.filter-btn.active {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+/* Timeline */
+.activity-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  max-height: 600px;
+  overflow-y: auto;
+  padding-right: var(--spacing-2);
+}
+
+/* Custom Scrollbar */
+.activity-timeline::-webkit-scrollbar {
+  width: 6px;
+}
+
+.activity-timeline::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-full);
+}
+
+.activity-timeline::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: var(--radius-full);
+}
+
+.activity-timeline::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}
+
+/* Activity Item */
+.activity-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-3);
+  padding: var(--spacing-3);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-fast);
+  animation: slideIn 0.3s ease forwards;
+  opacity: 0;
+  transform: translateX(-10px);
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.activity-item:hover {
+  transform: translateX(4px);
+  background: var(--bg-hover);
+}
+
+/* Activity Icon */
+.activity-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.activity-item:hover .activity-icon {
+  transform: scale(1.1);
+}
+
+/* Activity Content */
+.activity-content {
+  flex: 1;
+}
+
+.activity-message {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--spacing-1);
+  margin-bottom: var(--spacing-1);
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.activity-action {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.activity-title {
+  color: var(--text-primary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.activity-title:hover {
+  color: var(--primary-color);
+}
+
+.activity-user {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.activity-detail {
+  color: var(--text-tertiary);
+  font-size: 0.75rem;
+  font-style: italic;
+}
+
+/* Activity Meta */
+.activity-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  flex-wrap: wrap;
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+}
+
+.activity-time {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.activity-time::before {
+  content: '🕒';
+  font-size: 0.65rem;
+  opacity: 0.7;
+}
+
+.activity-author {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.activity-author::before {
+  content: '✍️';
+  font-size: 0.65rem;
+  opacity: 0.7;
+}
+
+.separator {
+  color: var(--border-color);
+}
+
+.activity-status {
+  display: inline-block;
+  padding: 0.125rem 0.375rem;
+  border-radius: var(--radius-full);
+  font-size: 0.6rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.activity-status.published {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--success-color);
+}
+
+.activity-status.draft {
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--warning-color);
+}
+
+/* Action Button */
+.activity-action-btn {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: var(--spacing-1);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  opacity: 0;
+  color: var(--text-secondary);
+}
+
+.activity-item:hover .activity-action-btn {
+  opacity: 1;
+}
+
+.activity-action-btn:hover {
+  background: var(--bg-hover);
+  transform: scale(1.1);
+  color: var(--primary-color);
+}
+
+/* No Activities State */
+.no-activities {
+  text-align: center;
+  padding: var(--spacing-8);
+  color: var(--text-tertiary);
+}
+
+.empty-icon {
+  font-size: 3rem;
+  margin-bottom: var(--spacing-3);
+  opacity: 0.5;
+}
+
+.no-activities p {
+  margin-bottom: var(--spacing-1);
+  font-size: 0.875rem;
+}
+
+.no-activities small {
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+/* Footer */
+.activity-footer {
+  margin-top: var(--spacing-4);
+  padding-top: var(--spacing-3);
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.view-all-btn {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: var(--spacing-2) var(--spacing-4);
+  transition: all var(--transition-fast);
+  border-radius: var(--radius-md);
+}
+
+.view-all-btn:hover {
+  background: var(--bg-hover);
+  transform: translateY(-1px);
+}
+
+/* Loading State */
+.recent-activity-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-8);
+  gap: var(--spacing-3);
+  background: var(--bg-primary);
+  border-radius: var(--radius-xl);
+}
+
+.loading-spinner-small {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border-color);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.recent-activity-loading p {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .recent-activity {
+    padding: var(--spacing-3);
+  }
+  
+  .activity-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .activity-filters {
+    justify-content: center;
+  }
+  
+  .activity-item {
+    padding: var(--spacing-2);
+  }
+  
+  .activity-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+  
+  .activity-message {
+    font-size: 0.75rem;
+  }
+  
+  .activity-meta {
+    font-size: 0.6rem;
+  }
+  
+  .activity-action-btn {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .activity-message {
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .activity-meta {
+    margin-top: var(--spacing-1);
+  }
+  
+  .filter-btn {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.5rem;
+  }
+}
+
+/* Dark Mode Adjustments */
+[data-theme="dark"] .activity-item {
+  background: var(--bg-tertiary);
+}
+
+[data-theme="dark"] .filter-btn {
+  background: var(--bg-tertiary);
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .activity-item {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  
+  .auto-refresh-badge {
+    animation: none;
+  }
+  
+  .activity-item:hover {
+    transform: none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .recent-activity {
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+  
+  .activity-action-btn,
+  .activity-filters,
+  .view-all-btn {
+    display: none;
+  }
+}

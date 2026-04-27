@@ -1,0 +1,24 @@
+/* Add to src/styles/theme.css */
+:root {
+  --auth-bg: #1a1a2e;
+  --auth-card-bg: #2d2d44;
+  --auth-text-primary: #ffffff;
+  --auth-text-secondary: #c0c0e0;
+  --auth-text-tertiary: #a0a0c0;
+  --auth-border: #3d3d5c;
+  --auth-input-bg: #1e1e32;
+  --auth-input-border: #3d3d5c;
+  --auth-input-focus: #e94560;
+  --auth-error-bg: rgba(239, 68, 68, 0.15);
+  --auth-error-text: #fca5a5;
+  --auth-error-border: #ef4444;
+  --auth-gradient-start: #e94560;
+  --auth-gradient-end: #667eea;
+}
+
+[data-theme="dark"] {
+  --auth-bg: #0f0f1a;
+  --auth-card-bg: #1a1a2e;
+  --auth-input-bg: #111122;
+  --auth-border: #2a2a3e;
+}
